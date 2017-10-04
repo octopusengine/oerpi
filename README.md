@@ -11,6 +11,6 @@ git clone https://github.com/the-raspberry-pi-guy/OLED<br />
 cd OLED<br />
 sh OLEDinstall.sh<br />
 <br />
-<br />
+https://github.com/rm-hull/luma.examples<br />
 <br />
 <br />
