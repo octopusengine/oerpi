@@ -14,3 +14,6 @@ sh OLEDinstall.sh<br />
 https://github.com/rm-hull/luma.examples<br />
 <br />
 <br />
+<hr / >
+<code>sudo apt-get install python-pip</code><br />
+<code>pip install git+</code><br />
