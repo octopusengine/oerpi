@@ -14,7 +14,7 @@ s.write("C") #clear
 sdRQC(0,"today BITCOIN graph",7)
 s.write("h35")
 s.write("h200")
-sdRQC(10,"octopusengine.eu",7)
+sdRQC(10,"octopusengine.org",7)
 
 #s.write("W5h150")
 
@@ -33,7 +33,7 @@ jObj = json.loads(bcfile)
 
 
 def bc2gr(bc):
-  gr=(bc-400)/2
+  gr=(bc-5000)/2
   return (gr)
 
 tt=1
