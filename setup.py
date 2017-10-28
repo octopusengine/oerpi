@@ -5,7 +5,7 @@ import os
 
 from setuptools import find_packages, setup
 
-from octopusEngine.oerpi import __version__
+#from octopusEngine.oerpi import __version__
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 
@@ -23,7 +23,7 @@ setup(
     name='oerpi',
     version=__version__,
     platforms=['OS Independent'],
-    description='Light, portable, easy to operate – cashier that allows you to accept payments in Bitcoin ad LTC.',
+    description='Light, portable, easy to operate â€“ cashier that allows you to accept payments in Bitcoin ad LTC.',
     # long_description=read('README.md'),
     keywords='bitcoin terminal',
     url='https://github.com/octopusengine/kryptomat',
