@@ -16,4 +16,4 @@ https://github.com/rm-hull/luma.examples<br />
 <br />
 <hr / >
 <code>sudo apt-get install python-pip</code><br />
-<code>pip install git+</code><br />
+<code>pip install git+https://github.com/octopusengine/oerpi.git</code><br />
