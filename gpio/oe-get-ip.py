@@ -39,7 +39,7 @@ s.write("C") #clear
 sdRQC(0,"Serial Display",7)
 s.write("h35")
 s.write("h200")
-sdRQC(10,"octopusengine.eu",7)
+sdRQC(10,"octopusengine.org",7)
 sleep(1)
 
 sdRQC(2,"raspberry pi test",1)
