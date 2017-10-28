@@ -36,7 +36,7 @@ print "test ok - end"
 tt=1
 while True:
         
-        t=read_temp()
+        t=getDallTemp()
 	print(str(t))
         sdRQC(8,"temp: "+str(t),2)
     
