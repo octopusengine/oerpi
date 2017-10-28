@@ -1,0 +1,9 @@
+sudo nano /etc/modules
+
+wget https://raspberry-gpio-python.googlecode.com/files/python-rpi.gpio_0.5.3a-1_armhf.deb
+sudo dpkg -i python-rpi.gpio_0.5.3a-1_armhf.deb
+
+sudo nano /etc/modprobe.d/raspi-blacklist.conf //blasklist
+sudo apt-get install i2c-tools
+sudo modprobe i2c-dev
+sudo i2cdetect 0
