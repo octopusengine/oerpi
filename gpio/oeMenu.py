@@ -4,7 +4,7 @@
 
 import random, sys, os, time
 from time import sleep
-from gpio.octopusEngineHWlib import *
+from octopusEngineHWlib import *
 
 from gpiozero import LED
 from gpiozero import Button
