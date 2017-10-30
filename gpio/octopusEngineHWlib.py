@@ -2,12 +2,101 @@
 # simple library for raspberry pi + serialdisplay (arduino) 
 # 2013 basic test
 # 2016/05
-# 2017/10 RPI2/3
+# 2017/10 RPI2/3 and 3DWARF shield
 # octopusengine.org - FB/Instagram/...
 # ------------------------------
 import sys, os, subprocess, time
 from socket import gethostname, gethostbyname #getIp
 from time import sleep
+import RPi.GPIO as GPIO
+
+COVER = 16
+TOWER = 26
+TANK = 21
+PIEZ = 20
+JMP1 = TOWER
+RELE1=18
+
+#  ...
+#       -   - GND
+#  S 19 -   - 16 COVER
+#  T 26 -   - 20 PIEZO
+#   GND -   - 21 TANK
+#       -----
+
+# setup pins
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+#GPIO.setup(BTNS1, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(COVER, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
+GPIO.setup(TOWER, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+
+GPIO.setup(RELE1, GPIO.OUT)# beep 
+GPIO.setup(PIEZ, GPIO.OUT)# beep 
+beep = GPIO.PWM(PIEZ, 1500)   
+
+def isJmp1():
+   if not GPIO.input(JMP1): return True
+   else: return False     
+   
+def isJmp2():
+   if not GPIO.input(COVER): return True
+   else: return False 
+   
+ #----------------------------------------beep
+
+#pip(1600,0.03) #first, after init 
+#pip3x(2)
+ 
+def pip(f,long):
+  print ("beep")
+  beep.ChangeFrequency(f)
+  beep.start(10)
+  time.sleep(long)
+  beep.stop()
+  time.sleep(0.1)
+  
+def pip1():  
+  pip(1600,0.03)
+  time.sleep(0.1)
+
+def pip2():
+  print ("beep2")
+  beep.ChangeFrequency(1200)  #1500
+  beep.start(10)
+  time.sleep(0.1)
+  beep.stop()
+  time.sleep(0.5)
+  beep.ChangeFrequency(1800)
+  beep.start(10)
+  time.sleep(0.1)
+  beep.stop()
+  time.sleep(0.1)
+
+
+def pip3x(x):
+  for num in range(x):
+    pip(1800,0.1)
+    time.sleep(0.5)
+
+def pipAlarm(x):
+  for num in range(x):
+    pip(1800,0.15)
+    time.sleep(0.8)  
+ 
+ 
+def beep1(): #loop
+   for pip in range(50):
+    GPIO.output(PIEZ, True)
+    sleep(0.0005) 
+    GPIO.output(PIEZ, False)
+    sleep(0.0005)
+
+def beep0(): #pwm
+   p1 = GPIO.PWM(PIEZ, 300)  # channel=12 frequency=400Hz
+   p1.start(0.5)
+   sleep(0.2)
+   p1.stop() 
 
 # ======tft serial monitor====================
 import serial
