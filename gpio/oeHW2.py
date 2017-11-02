@@ -16,16 +16,7 @@ TOWER = 26
 TANK = 21
 PIEZ = 20
 JMP1 = TOWER
-RELE1=18
-
-f1=1000
-f2=2000
-f1a=440
-f2a=880
-f3a=1760
-
-pz = PWMLED(PIEZ)
-pz.frequency = f1
+RELE1 = 18
 
 #  ...
 #       -   - GND
@@ -33,7 +24,6 @@ pz.frequency = f1
 #  T 26 -   - 20 PIEZO
 #   GND -   - 21 TANK
 #       -----
-
 # setup pins
 # GPIO.setwarnings(False)
 # GPIO.setmode(GPIO.BCM)
@@ -45,6 +35,15 @@ pz.frequency = f1
 # GPIO.setup(PIEZ, GPIO.OUT)# beep 
 # beep = GPIO.PWM(PIEZ, 1500)   
 
+f1=1000
+f2=2000
+f1a=440
+f2a=880
+f3a=1760
+
+pz = PWMLED(PIEZ)
+pz.frequency = f1
+
 def isJmp1():
    if not GPIO.input(JMP1): return True
    else: return False     
@@ -53,16 +52,15 @@ def isJmp2():
    if not GPIO.input(COVER): return True
    else: return False 
    
- #----------------------------------------beep
-
+#----------------------------------------beep
 #pip(1600,0.03) #first, after init 
 #pip3x(2)
  
-def pip(f,long):
+def beep(f,tim):
   print ("beep")
   pz.value = 0.5
-  pz.frequency=f1 
-  sleep(0.1)
+  pz.frequency=f
+  sleep(tim)
   pz.value = 0
      
 def pip1():  
